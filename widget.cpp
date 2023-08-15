@@ -7,8 +7,20 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    if (diff > money)
+    if (money < 100) {
         ui->pbCoffee->setEnabled(false);
+    }
+    if (money < 150) {
+        ui->pbTea->setEnabled(false);
+    }
+    if (money < 200) {
+        ui->pbMilk->setEnabled(false);
+    }
+    else {
+        ui->pbCoffee->setEnabled(true);
+        ui->pbTea->setEnabled(true);
+        ui->pbMilk->setEnabled(true);
+    }
 }
 
 Widget::~Widget()
